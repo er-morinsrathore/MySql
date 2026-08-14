@@ -1,0 +1,36 @@
+4.1
+CREATE TABLE Playlist (
+    id INT PRIMARY KEY,
+    song_name VARCHAR(100),
+    artist VARCHAR(100),
+    genre VARCHAR(50),
+    play_count INT
+);
+
+INSERT INTO Playlist (id, song_name, artist, genre, play_count)
+VALUES
+(1, 'Blinding Lights', 'The Weeknd', 'Pop', 250),
+(2, 'Shape of You', 'Ed Sheeran', 'Pop', 180),
+(3, 'Gods Plan', 'Drake', 'Hip-Hop', 150),
+(4, 'Believer', 'Imagine Dragons', 'Rock', 90),
+(5, 'HUMBLE.', 'Kendrick Lamar', 'Hip-Hop', 120);
+
+4.2
+SELECT song_name, artist AS Singer
+FROM Playlist;
+
+4.3
+SELECT *
+FROM Playlist
+WHERE genre = 'Pop' AND play_count > 100
+ORDER BY play_count DESC;
+
+4.4
+SELECT COUNT(*) AS Hip_Hop_Songs
+FROM Playlist
+WHERE genre = 'Hip-Hop';
+
+4.5
+SELECT genre, SUM(play_count) AS Total_Plays
+FROM Playlist
+GROUP BY genre;
